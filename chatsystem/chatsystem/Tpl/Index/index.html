@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fi" lang="fi">
+<head>
+	<link rel="stylesheet" href="__ROOT__/style/css/login.css" type="text/css" media="screen"></link>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>用户管理系统</title>
+	<style type="text/css">/*<![CDATA[*/
+		@import "css/login.css";
+	/*]]>*/</style>
+	
+
+<script type="text/javascript">
+function checkNull(thisform)
+{
+	if((thisform.name.value=="")||(thisform.password.value=="")){
+		alert("用户名或密码为空，请检查并重新输入");
+		return false;
+	}
+	
+	return true;
+}
+</script>
+</head>
+
+<body>
+	<div id="container">
+		<h1>用户管理系统</h1>
+		<div id="box">
+			<form action="/index.php/Index/verify" method="post" onsubmit = "return checkNull(this)">
+			<p class="main">
+				<label>用户名: </label>
+				<input name="name" value="" /> 
+				<label>密    码: </label>
+				<input type="password" name="password" value="">
+			</p>
+
+			<p class="usertype">
+				<input type="radio" name="usertype" id = "repaircrew" class="usertype" value="0">普通用户</input>
+				<input type="radio" name="usertype" id = "administrator" class="usertype" value="2">管理员</input>
+				<input type="submit" value="登录" class="login" />
+			</p>
+			<p>
+				<a href = "index.php/Index/register" class="register">注册新用户</a>
+			</p>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

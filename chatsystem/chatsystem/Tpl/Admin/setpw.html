@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户密码修改结果</title>
+<script type="text/javascript">
+function setsuccess()
+{
+	alert("用户密码修改成功，确认重新登录");
+	window.location.href = "__ROOT__/";
+}
+
+function setfailed(){
+	alert("原始密码错误，无法修改用户密码，确认重新输入");
+	window.location.href = "modifypw";
+}
+</script>
+</head>
+
+<body onload = "{$run}">
+</body>
+</html>

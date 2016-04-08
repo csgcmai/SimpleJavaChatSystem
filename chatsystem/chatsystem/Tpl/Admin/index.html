@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>用户管理系统</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<link rel="stylesheet" href="__ROOT__/style/css/style.css" type="text/css" media="screen">
+	<script type="text/javascript" src="__ROOT__/style/js/jquery.js"></script>
+	<script type="text/javascript" src="__ROOT__/style/js/wysiwyg"></script>
+	<script type="text/javascript" src="__ROOT__/style/js/jquery_ui.js"></script>
+	<script type="text/javascript" src="__ROOT__/style/js/functions.js"></script>
+	
+	
+	
+	<style type="text/css" media="all">
+		@import url(css/style.css);
+		img {behavior:url('js/iepngfix.htc') !important;}
+	</style>
+
+</head>
+<body>
+<div id="container"> <!-- Container -->
+	<div id="header"> <!-- Header -->
+		<div id="title">
+			用户管理系统
+			<span>专为聊天工具设计</span>
+		</div>
+		<div class="logged">
+			<p>Hello, <a href="#" title="">{$username}</a>!</p>
+		</div>
+	</div>	
+	<div id="sidebar"> <!-- Sidebar -->
+		<div class="sidebox">
+			<span class="stitle">日历</span>
+			<div id="datepicker"></div>
+
+		</div>
+	</div> <!-- END Sidebar -->
+	<div id="main"> <!-- Main, right side content -->
+		<div id="content"> <!-- Content begins here -->
+				<ul class="modals">
+					<li>
+						<a href="__ROOT__/index.php/Admin/index">
+							<img src="__ROOT__/style/iconsee/home.png" alt="index" />
+							<span>主页</span>
+						</a>
+					</li>
+					<li>
+						<a href="__ROOT__/index.php/Admin/newuser">
+							<img src="__ROOT__/style/iconsee/newuser.png" alt="newuser" />
+							<span>新建用户</span>
+						</a>
+					</li>
+					<li>
+						<a href="__ROOT__/index.php/Admin/search">
+							<img src="__ROOT__/style/iconsee/search.png" alt="search" />
+							<span>查找用户</span>
+						</a>
+					</li>
+					<li>
+						<a href="__ROOT__/index.php/Admin/modifypw">
+							<img src="__ROOT__/style/iconsee/setpw.png" alt="modifypw" />
+							<span>修改密码</span>
+						</a>
+					</li>
+					<li>
+						<a href="__ROOT__/">
+							<img src="__ROOT__/style/iconsee/return.png" alt="login" />
+							<span>返回登录</span>
+						</a>
+					</li>
+				</ul>
+				<form method="get" action="edit"><!-- Form -->
+				<!-- Fieldset -->
+				<fieldset>
+					<div class="input_field">
+						<label for="sf">用户名   :</label>
+						<span class="field_desc">{$name}</span>
+					</div>
+					<div class="input_field">
+						<label for="sf">真实姓名: </label> 						
+ 						<span class="field_desc">{$real_name}</span>
+					</div>
+					<div class="input_field">
+						<label for="sf">公     司    : </label>
+ 						<span class="field_desc">{$company_name}</span>
+					</div>
+					
+					<div class="input_field">
+						<label for="sf">联系电话: </label>
+ 						<span class="field_desc">{$phone}</span>
+					</div>
+					
+					<div class="input_field">
+						<label for="mf">电子邮件: </label>
+ 						<span class="field_desc">{$email}</span>
+					</div>
+					
+					<div class="input_field">
+							<textarea cols="50" rows="10" value="{$comment}"></textarea>
+					</div>
+					<div class="input_field no_margin_bottom">
+						<input class="submit" type="submit" value="修改信息" />
+					</div>
+				</fieldset>
+				<!-- End of fieldset -->
+				</form><!-- /Form -->
+				<div class="clear"><!-- --></div>
+		</div> <!-- END Content -->
+
+	</div> 	
+		<div id="footer"> 
+			<p>Copyright User Manager System 2013. All rights reserved.</p>
+		</div>	
+</div> <!-- END Container -->
+</body>
+</html>

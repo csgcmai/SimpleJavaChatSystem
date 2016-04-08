@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<script type="text/javascript">
+function checkNull(thisform)
+{
+	if(thisform.name.value == ""||thisform.name.value == null){
+		alert("姓名为空，请检查并重新输入");
+		return false;
+	} else if(thisform.real_name.value == "" || thisform.real_name.value == null){
+		alert("真实姓名为空，请检查并重新输入");
+		return false;
+	} else if(thisform.pw1.value == "" ||thisform.pw1.value == null){
+		alert("用户密码为空，请检查并重新输入");
+		return false;
+	} else if(thisform.company_name.value == ""||thisform.company_name.value == null){
+		alert("所在公司名称为空，请检查并重新输入");
+		return false;
+	} else 	if(thisform.phone.value == ""||thisform.phone.value == null){
+		alert("联系电话为空，请检查并重新输入");
+		return false;
+	} else 	if(thisform.email.value == ""||thisform.email.value == null){
+		alert("电子邮件为空，请检查并重新输入");
+		return false;
+	}
+	
+	if(thisform.pw1.value != thisform.pw2.value){
+		alert("两次密码输入不一致，请检查并重新输入");
+		return false;
+	}
+	
+	return true;
+}
+
+function checkpwconsistent(){
+	var password1 = document.getElementById('pw1');
+	var password2 = document.getElementById('pw2');
+	if(password1.value!=password2.value) alert("两次密码输入不一致，请检查并重新输入");
+}
+
+</script>
+	<title>用户管理系统</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<link rel="stylesheet" href="__ROOT__/style/css/style.css" type="text/css" media="screen">
+	<script type="text/javascript" src="__ROOT__/style/js/jquery.js"></script>
+	<script type="text/javascript" src="__ROOT__/style/js/wysiwyg"></script>
+	<script type="text/javascript" src="__ROOT__/style/js/jquery_ui.js"></script>
+	<script type="text/javascript" src="__ROOT__/style/js/functions.js"></script>
+	
+	
+	
+	<style type="text/css" media="all">
+		@import url(css/style.css);
+		img {behavior:url('js/iepngfix.htc') !important;}
+	</style>
+</head>
+<body>
+<div id="container"> <!-- Container -->
+	<div id="header"> <!-- Header -->
+		<div id="title">
+			用户管理系统
+			<span>专为聊天工具设计</span>
+		</div>
+		<div class="logged">
+			<p>Hello, <a href="#" title="">{$username}</a>!</p>
+		</div>
+	</div>	
+	<div id="sidebar"> <!-- Sidebar -->
+		<div class="sidebox">
+			<span class="stitle">日历</span>
+			<div id="datepicker"></div>
+
+		</div>
+	</div> <!-- END Sidebar -->
+	<div id="main"> <!-- Main, right side content -->
+		<div id="content"> <!-- Content begins here -->
+				<ul class="modals">
+					<li>
+						<a href="__ROOT__/index.php/Admin/index">
+							<img src="__ROOT__/style/iconsee/home.png" alt="index" />
+							<span>主页</span>
+						</a>
+					</li>
+					<li>
+						<a href="__ROOT__/index.php/Admin/newuser">
+							<img src="__ROOT__/style/iconsee/newuser.png" alt="newuser" />
+							<span>新建用户</span>
+						</a>
+					</li>
+					<li>
+						<a href="__ROOT__/index.php/Admin/search">
+							<img src="__ROOT__/style/iconsee/search.png" alt="search" />
+							<span>查找用户</span>
+						</a>
+					</li>
+					<li>
+						<a href="__ROOT__/index.php/Admin/modifypw">
+							<img src="__ROOT__/style/iconsee/setpw.png" alt="modifypw" />
+							<span>修改密码</span>
+						</a>
+					</li>
+					<li>
+						<a href="__ROOT__/">
+							<img src="__ROOT__/style/iconsee/return.png" alt="login" />
+							<span>返回登录</span>
+						</a>
+					</li>
+				</ul>
+				<form method="post" action="adduser" onsubmit = "return checkNull(this)"><!-- Form -->
+				<!-- Fieldset -->
+				<fieldset>
+					<div class="input_field">
+						<label for="sf">是否创建管理员账户   : </label>
+						<input type="radio" name="usertype" id = "generaluser" class="usertype" value="0">普通用户</input>
+						<input type="radio" name="usertype" id = "administrator" class="usertype" value="2">管理员</input>
+					</div>
+					<div class="input_field">
+						<label for="sf">用户名   : </label>
+						<input class="smallfield" name="name" type="text" value="" />
+					</div>
+					<div class="input_field">
+						<label for="sf">真实姓名: </label>
+ 						<input class="smallfield" name="real_name" type="text" />
+					</div>
+					<div class="input_field">
+						<label for="sf">用户密码: </label>
+ 						<input class="smallfield" id="pw1" name="pw1" type="password" />
+					</div>
+					<div class="input_field">
+						<label for="sf">确认密码: </label>
+ 						<input class="smallfield" id="pw2" name="pw2" type="password" onblur="checkpwconsistent()" value="" />
+					</div>
+					<div class="input_field">
+						<label for="sf">公     司    : </label>
+ 						<input class="smallfield" name="company_name" type="text" value="" />
+					</div>
+					
+					<div class="input_field">
+						<label for="sf">联系电话: </label>
+ 						<input class="smallfield" name="phone" type="text" value="" />
+					</div>
+					
+					<div class="input_field">
+						<label for="mf">电子邮件: </label>
+ 						<input class="mediumfield" name="email" type="text" value="" />
+					</div>
+					
+					<div class="input_field">
+							<textarea cols="50" rows="10" value="请输入备注信息"></textarea>
+					</div>
+					<div class="input_field no_margin_bottom">
+						<input class="submit" type="submit" value="创建新用户" />
+					</div>
+				</fieldset>
+				<!-- End of fieldset -->
+				</form><!-- /Form -->
+				<div class="clear"><!-- --></div>
+		</div> <!-- END Content -->
+
+	</div> 	
+		<div id="footer"> 
+			<p>Copyright User Manager System 2013. All rights reserved.</p>
+		</div>	
+</div> <!-- END Container -->
+</body>
+</html>

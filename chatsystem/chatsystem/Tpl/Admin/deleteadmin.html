@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>用户密码修改结果</title>
+<script type="text/javascript">
+function incorrecteditorpassword()
+{
+	alert("您的密码错误，请检查并重新输入");
+	window.location.href = "delete";
+}
+
+function incorrectdeletedpassword(){
+	alert("被删除管理员用户名或密码错误，请检查并重新输入");
+	window.location.href = "delete";
+}
+
+function deleteadminsuccess(){
+	alert("删除管理员成功");
+	window.location.href = "search";
+}
+</script>
+</head>
+
+<body onload = "{$run}">
+</body>
+</html>
